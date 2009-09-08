@@ -128,7 +128,7 @@ private
         l.gsub(/\[\S*\s(\S*)\]\W+INFO: \w*\s(\w*)/, "<span class='gray'>\\1</span> | <span class='act'>act</span> | \\2")
       end
 
-    end.join("</br>")
+    end.reverse.join("</br>")
   end
 
   #TODO
