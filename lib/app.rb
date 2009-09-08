@@ -23,7 +23,7 @@ get '/w/:watch' do
   @watch = params["watch"]
   @status = GODWEB.status[@watch][:state]
   @commands = GodWeb.possible_statuses(@status)
-  show(:watch, "#{@watch} [#{@status}]")
+  show(:watch, @watch)
 end
 
 get '/g/:group' do

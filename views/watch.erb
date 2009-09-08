@@ -1,7 +1,9 @@
 <ul id="<%= @watch %>_commands" title="<%= @title %>">
+  <li class="<%= @status %>"> <%= @status %> [<%= Time.now.strftime("%H:%m %m/%d") %>]</li>
+  <li class="group">Commands</li>
   <% @commands.each do |command| %>
     <li id="<%= command %>_<%= @watch %>" class="<%= command %>">
-     <a href="/w/<%= @watch %>/<%= command %>">
-      <%= command %></a></li>
+    <a href="/w/<%= @watch %>/<%= command %>"><%= command %></a></li>
   <% end %>
+  <li class="group">Log</li>
 </ul>
