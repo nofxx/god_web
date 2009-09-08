@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{god_web}
-  s.version = "0.2.1"
+  s.version = "0.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jesse Newland", "Marcos Piccinini"]
@@ -30,7 +30,6 @@ Gem::Specification.new do |s|
      "lib/app.rb",
      "lib/environment.rb",
      "lib/god_web.rb",
-     "lib/sinatra_http_auth.rb",
      "public/.DS_Store",
      "public/app.css",
      "public/icons/databases.png",

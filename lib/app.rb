@@ -1,8 +1,7 @@
-
 before do
   unless (GODWEB_CONFIG['username'].nil? && GODWEB_CONFIG['password'].nil?) || self.request.path_info == '/heartbeat'
-    authenticate_or_request_with_http_basic "GodWeb" do
-      |user, pass| user == GODWEB_CONFIG['username'] && pass == GODWEB_CONFIG['password']
+    use Rack::Auth::Basic do |user, pass|
+      [user, pass] == [GODWEB_CONFIG['username'], GODWEB_CONFIG['password']]
     end
   end
   GODWEB.ping
