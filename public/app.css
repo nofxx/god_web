@@ -1,0 +1,11 @@
+body > ul > li {
+  padding-left: 30px;
+}
+li.up {    background: transparent url(../icons/up.png) no-repeat scroll 8px 12px;}
+li.unmonitored {    background: transparent url(../icons/unmonitored.png) no-repeat scroll 8px 12px;}
+li.monitor {    background: transparent url(../icons/monitor.png) no-repeat scroll 8px 12px;}
+li.start {    background: transparent url(../icons/start.png) no-repeat scroll 8px 12px;}
+li.stop { background: transparent url(../icons/stop.png) no-repeat scroll 8px 12px; }
+li.restart {    background: transparent url(../icons/restart.png) no-repeat scroll 8px 12px;}
+li.unmonitor {    background: transparent url(../icons/unmonitor.png) no-repeat scroll 8px 12px;}
+li.groups {    background: transparent url(../icons/groups.png) no-repeat scroll 8px 12px;}
