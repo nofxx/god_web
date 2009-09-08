@@ -39,6 +39,7 @@ get '/w/:watch/:command' do
   @command = params["command"]
   @success = GODWEB.send(@command, @watch)
   @success = false if @success == []
+  @log = GODWEB.last_log(@watch)
   show(:command, "#{@command}ing #{@watch}")
 end
 

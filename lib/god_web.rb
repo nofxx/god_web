@@ -117,13 +117,18 @@ private
       l.gsub!(/I\s+|\(\w*\)|within bounds/, "") #        gsub(/\(\w*\)/, """)
       # if ok, span is green
       ok = l =~ /\[ok\]/
-      # get some data we want...
-      l.gsub(/\[\S*\s(\S*)\]\W+INFO: (\w*-?\w*)\s\[(\w*)\]/, "<span class='gray'>\\1</span> | <span class='#{ok ? 'green' : 'red'}'>\\3</span> |").
-        # take only the integer from cpu
-        gsub(/cpu/, "cpu %").gsub(/(\d{1,3})\.\d*%/, "\\1").
-        # show mem usage in mb
-        gsub(/memory/, "memory mb").gsub(/(\d*kb)/) { ($1.to_i / 1000).to_s }
-     end.join("</br>")
+      if l =~ /\[\w*\]/
+        # get some data we want...
+        l.gsub(/\[\S*\s(\S*)\]\W+INFO: (\w*-?\w*|.*)?\s\[(\w*)?\]/, "<span class='gray'>\\1</span> | <span class='#{ok ? 'green' : 'red'}'>\\3</span> |").
+          # take only the integer from cpu
+          gsub(/cpu/, "cpu %").gsub(/(\d{1,3})\.\d*%/, "\\1").
+          # show mem usage in mb
+          gsub(/memory/, "memory mb").gsub(/(\d*kb)/) { ($1.to_i / 1000).to_s }
+      else
+        l.gsub(/\[\S*\s(\S*)\]\W+INFO: \w*\s(\w*)/, "<span class='gray'>\\1</span> | <span class='act'>act</span> | \\2")
+      end
+
+    end.join("</br>")
   end
 
   #TODO

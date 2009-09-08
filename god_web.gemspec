@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{god_web}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jesse Newland", "Marcos Piccinini"]
@@ -16,7 +16,9 @@ Gem::Specification.new do |s|
   s.executables = ["god_web"]
   s.files = [
     ".gitignore",
+     "Rakefile",
      "Readme.textile",
+     "VERSION",
      "bin/god_web",
      "bugs/issue-28789de6ef59a981f26031fdf68030a1474251e8.yaml",
      "bugs/issue-949b87d1535bd55950daf2ec197a25ce2a0de13f.yaml",
@@ -70,6 +72,8 @@ Gem::Specification.new do |s|
      "public/iui/toolButton.png",
      "public/iui/toolbar.png",
      "public/iui/whiteButton.png",
+     "spec/god_web_spec.rb",
+     "spec/spec_helper.rb",
      "views/command.erb",
      "views/status.erb",
      "views/watch.erb"

@@ -24,3 +24,7 @@ li.groups {    background: transparent url(../icons/groups.png) no-repeat scroll
     color: #aa0000;
     font-weight: bold;
 }
+.act {
+    color: #999900;
+    font-weight: bold;
+}
