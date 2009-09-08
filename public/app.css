@@ -9,3 +9,18 @@ li.stop { background: transparent url(../icons/stop.png) no-repeat scroll 8px 12
 li.restart {    background: transparent url(../icons/restart.png) no-repeat scroll 8px 12px;}
 li.unmonitor {    background: transparent url(../icons/unmonitor.png) no-repeat scroll 8px 12px;}
 li.groups {    background: transparent url(../icons/groups.png) no-repeat scroll 8px 12px;}
+
+.info {
+  font-size: 0.8em;
+}
+
+.gray { color: #aaa; }
+
+.green {
+    color: #00aa00;
+    font-weight: bold;
+}
+.red {
+    color: #aa0000;
+    font-weight: bold;
+}

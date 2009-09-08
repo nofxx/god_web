@@ -66,6 +66,10 @@ class GodWeb
     end
   end
 
+  def last_log(watch)
+    format_log(log_command(watch, true))
+  end
+
   def self.possible_statuses(status)
     case status
     when :up
@@ -76,6 +80,7 @@ class GodWeb
       return %w{start stop restart}
     end
   end
+
 
 private
 
@@ -103,29 +108,51 @@ private
     @server.status
   end
 
+  #
+  # To make it look good (no horiz scrollbars) in the iphone
+  #
+  def format_log(raw)
+    raw.split("\n").map do |l|
+      # clean stuff we don't need
+      l.gsub!(/I\s+|\(\w*\)|within bounds/, "") #        gsub(/\(\w*\)/, """)
+      # if ok, span is green
+      ok = l =~ /\[ok\]/
+      # get some data we want...
+      l.gsub(/\[\S*\s(\S*)\]\W+INFO: (\w*-?\w*)\s\[(\w*)\]/, "<span class='gray'>\\1</span> | <span class='#{ok ? 'green' : 'red'}'>\\3</span> |").
+        # take only the integer from cpu
+        gsub(/cpu/, "cpu %").gsub(/(\d{1,3})\.\d*%/, "\\1").
+        # show mem usage in mb
+        gsub(/memory/, "memory mb").gsub(/(\d*kb)/) { ($1.to_i / 1000).to_s }
+     end.join("</br>")
+  end
+
   #TODO
-  # def log_command
-  #   begin
-  #     Signal.trap('INT') { exit }
-  #     name = @args[1]
-  #     
-  #     unless name
-  #       puts "You must specify a Task or Group name"
-  #       exit!
-  #     end
-  #     
-  #     t = Time.at(0)
-  #     loop do
-  #       print @server.running_log(name, t)
-  #       t = Time.now
-  #       sleep 1
-  #     end
-  #   rescue God::NoSuchWatchError
-  #     puts "No such watch"
-  #   rescue DRb::DRbConnError
-  #     puts "The server went away"
-  #   end
-  # end
+  def log_command(name, sample=false)
+    begin
+      Signal.trap('INT') { exit }
+    #  name = @args[1]
+
+      unless name
+        puts "You must specify a Task or Group name"
+        exit!
+      end
+
+      t = Time.at(0)
+      if sample
+        @server.running_log(name, t)
+      else
+        loop do
+          @server.running_log(name, t)
+          t = Time.now
+          sleep 1
+        end
+      end
+    rescue God::NoSuchWatchError
+      puts "No such watch"
+    rescue DRb::DRbConnError
+      puts "The server went away"
+    end
+  end
 
   def quit_command
     begin

@@ -23,6 +23,7 @@ get '/w/:watch' do
   @watch = params["watch"]
   @status = GODWEB.status[@watch][:state]
   @commands = GodWeb.possible_statuses(@status)
+  @log = GODWEB.last_log(@watch)
   show(:watch, @watch)
 end
 
@@ -48,7 +49,7 @@ end
 
 private
 
-  def show(template, title = 'GodWeb')
-    @title = title
-    erb(template)
-  end
+def show(template, title = 'GodWeb')
+  @title = title
+  erb(template)
+end
