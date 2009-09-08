@@ -4,6 +4,7 @@ require 'sinatra'
 require 'stringio'
 require 'yaml'
 require 'erb'
+require 'optparse'
 #included until http://sinatra.lighthouseapp.com/projects/9779/tickets/16-patch-http-authentication is in a released version
 require File.dirname(__FILE__) + '/app'
 require File.dirname(__FILE__) + '/sinatra_http_auth'
@@ -23,5 +24,5 @@ end
 
 GODWEB = GodWeb.new(config)
 
-Sinatra::Application.options.public = File.dirname(__FILE__) + "/../public"
-Sinatra::Application.options.views = File.dirname(__FILE__) + "/../views"
+Sinatra::Application.public = File.dirname(__FILE__) + "/../public"
+Sinatra::Application.views = File.dirname(__FILE__) + "/../views"
