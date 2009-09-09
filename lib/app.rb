@@ -31,8 +31,8 @@ end
 
 get '/g/:group' do
   @watch = @group = params["group"]
-  puts @child = GODWEB.status.keys.each.select { |k| GODWEB.status[k][:group] == @group } #.select { |w| w["group"] = @group }
-  puts @child.inspect
+  @child = GODWEB.status.keys.each.select { |k| GODWEB.status[k][:group] == @group } #.select { |w| w["group"] = @group }
+  @child.map!{ |c| [c, GODWEB.status[c][:state]]}
   @status = nil
   @commands = GodWeb.possible_statuses(@status)
   show(:watch, "#{@group} [group]")

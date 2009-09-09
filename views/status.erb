@@ -2,9 +2,9 @@
   <head>
     <title><%= @title %></title>
     <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
-    <style type="text/css" media="screen">@import "/iui/iui.css";</style>
+    <style type="text/css" media="screen">@import "/iui/iuix.css";</style>
     <style type="text/css" media="screen">@import "/app.css";</style>
-    <script type="application/x-javascript" src="/iui/iui.js"></script>
+    <script type="application/x-javascript" src="/iui/iuix.js"></script>
     <script type="application/x-javascript" src="/app.js"></script>
     <script type="text/javascript">  iui.animOn = true;</script>
   </head>
@@ -18,22 +18,22 @@
     <% unless @groups.empty? %>
       <li class="group">Groups</li>
         <% @groups.each do |watch| %>
-          <li id="<%= watch %>" class="groups"><a href="/g/<%= watch %>"><%= watch %></a></li>
+          <li id="<%= watch %>"><a href="/g/<%= watch %>"><img src="icons/groups.png"><%= watch %></a></li>
         <% end %>
       <% end %>
       <li class="group">Watches</li>
       <% @watches.each do |watch| %>
-        <li id="<%= watch %>" class="<%= @statuses[watch][:state] %>">
-        <a href="/w/<%= watch %>"><%= watch %></a></li>
+        <li id="<%= watch %>">
+        <a href="/w/<%= watch %>"><img src="icons/<%= @statuses[watch][:state] %>.png"></img><%= watch %></a></li>
       <% end %>
       <li class="group">Extras</li>
-      <li id="home_icon" class="hicon"><a href="/i">Home Icon</a></li>
-      <li id="god_opts" class="god"><a href="/o">God</a></li>
+      <li id="home_icon"><a href="/i"><img src="icons/bookmark.png"></img>Home Icon</a></li>
+      <li id="god_opts"><a href="/o"><img src="icons/terminal.png"></img>God</a></li>
       <li class="group">About</li>
       <% for stat in @stats %>
-        <li class="<%= stat[0] %> tiny"><%= stat[1] %></li>
+        <li class="tiny"><img src="icons/<%= stat[0] %>.png"><%= stat[1] %></li>
       <% end %>
-      <li class="about tiny"><%= @footer %> [ok]</li>
+      <li class="tiny"><img src="icons/ruby.png"></img><%= @footer %> [ok]</li>
     </ul>
   </body>
 </html>

@@ -14,12 +14,12 @@
   <% end %>
   <% if @child %>
     <h2> Watches </h2>
-    <fieldset>
+    <fieldset><ul>
       <% for child in @child %>
-        <div class="row" id="<%= child %>">
-        <label><a href="/w/<%= child %>"><%= child %></a></label></div>
+        <li id="<%= child[0] %>">
+        <a href="/w/<%= child[0] %>"><img src="icons/<%= child[1] %>.png"></img><%= child[0] %></a></li>
       <% end %>
-    </fieldset>
+    </ul></fieldset>
   <% end %>
   <h2> Commands </h2>
   <fieldset>
