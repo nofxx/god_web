@@ -15,7 +15,9 @@ get '/' do
   end
   @watches.sort!
   @groups = GODWEB.groups
-  show(:status)
+  @host = `hostname`
+  @footer = "GodWeb v0.2 - #{@host}"
+  show(:status, @host)
 end
 
 get '/w/:watch' do
@@ -40,6 +42,16 @@ get '/w/:watch/:command' do
   @success = false if @success == []
   @log = GODWEB.last_log(@watch)
   show(:command, "#{@command}ing #{@watch}")
+end
+
+get '/o' do
+  @commands = %w{ quit restart }
+  show(:watch, "god itself")
+end
+
+get '/i' do
+  @text = `hostname`
+  show(:icon)
 end
 
 get '/heartbeat' do

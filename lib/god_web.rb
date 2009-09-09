@@ -59,9 +59,7 @@ class GodWeb
     begin
       @server.ping
     rescue Exception => e
-      if (tries -= 1) > 0
-        retry
-      end
+      retry if (tries -= 1) > 1
       raise e, "The server is not available (or you do not have permissions to access it)"
     end
   end

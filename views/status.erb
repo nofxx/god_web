@@ -13,7 +13,7 @@
       <a id="backButton" class="button" href="#"></a>
       <a class="button" href="/" target="_self">Refresh</a>
     </div>
-    <ul id="home" selected="true" title="GodWeb">
+    <ul id="home" selected="true" title="<%= @title %>">
     <% unless @groups.empty? %>
       <li class="group">Groups</li>
         <% @groups.each do |watch| %>
@@ -25,6 +25,15 @@
         <li id="<%= watch %>" class="<%= @statuses[watch][:state] %>">
         <a href="/w/<%= watch %>"><%= watch %></a></li>
       <% end %>
+      <li class="group">Extras</li>
+      <li id="home_icon" class="hicon">
+        <a href="/i">Home Icon</a>
+      </li>
+      <li id="god_opts" class="god">
+        <a href="/o">God</a>
+      </li>
+      <li class="group">About</li>
+      <li class="info"><%= @footer %> [ok]</li>
     </ul>
   </body>
 </html>

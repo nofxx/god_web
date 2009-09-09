@@ -1,14 +1,27 @@
-body > ul > li {
-  padding-left: 30px;
+body > ul > li {  padding-left: 30px; }
+li.unmonitored { background: transparent url(../icons/unmonitored.png) no-repeat scroll 8px 12px;}
+li.unmonitor   { background: transparent url(../icons/unmonitor.png) no-repeat scroll 8px 12px;}
+li.monitor { background: transparent url(../icons/monitor.png) no-repeat scroll 8px 12px;}
+li.start   { background: transparent url(../icons/start.png) no-repeat scroll 8px 12px;}
+li.stop    { background: transparent url(../icons/stop.png) no-repeat scroll 8px 12px; }
+li.quit    { background: transparent url(../icons/stop.png) no-repeat scroll 8px 12px; }
+li.restart { background: transparent url(../icons/restart.png) no-repeat scroll 8px 12px;}
+li.groups  { background: transparent url(../icons/groups.png) no-repeat scroll 8px 12px;}
+li.god     { background: transparent url(../icons/terminal.png) no-repeat scroll 8px 12px;}
+li.hicon   { background: transparent url(../icons/bookmark.png) no-repeat scroll 8px 12px;}
+li.info    { background: transparent url(../icons/info.png) no-repeat scroll 7px 7px;}
+li.up      { background: transparent url(../icons/up.png) no-repeat scroll 8px 12px;}
+
+.home_icon_div {
+  padding-top: 80px;
+  background: transparent url(../icons/big_icon.png) no-repeat scroll center center;
+  font-size: 4em;
+  margin-bottom: 100px;
+  height: 300px;
+  font-weight: bold;
+  color: #4d4d70;
+  text-shadow: rgba(255, 255, 255, 0.75) 2px 2px 0;
 }
-li.up {    background: transparent url(../icons/up.png) no-repeat scroll 8px 12px;}
-li.unmonitored {    background: transparent url(../icons/unmonitored.png) no-repeat scroll 8px 12px;}
-li.monitor {    background: transparent url(../icons/monitor.png) no-repeat scroll 8px 12px;}
-li.start {    background: transparent url(../icons/start.png) no-repeat scroll 8px 12px;}
-li.stop { background: transparent url(../icons/stop.png) no-repeat scroll 8px 12px; }
-li.restart {    background: transparent url(../icons/restart.png) no-repeat scroll 8px 12px;}
-li.unmonitor {    background: transparent url(../icons/unmonitor.png) no-repeat scroll 8px 12px;}
-li.groups {    background: transparent url(../icons/groups.png) no-repeat scroll 8px 12px;}
 
 .info {
   font-size: 0.8em;
