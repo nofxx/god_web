@@ -71,11 +71,11 @@ class GodWeb
   def self.possible_statuses(status)
     case status
     when :up
-      return %w{stop restart unmonitor}
+      return [true, true] # %w{stop restart unmonitor}
     when :unmonitored
-      return %w{start monitor}
+      return [false, false] #%w{start monitor}
     else
-      return %w{start stop restart}
+      return [true, true] #%w{start stop restart}
     end
   end
 
@@ -121,7 +121,7 @@ private
           # take only the integer from cpu
           gsub(/cpu/, "cpu %").gsub(/(\d{1,3})\.\d*%/, "\\1").
           # show mem usage in mb
-          gsub(/memory/, "memory mb").gsub(/(\d*kb)/) { ($1.to_i / 1000).to_s }
+          gsub(/memory/, "mem mb").gsub(/(\d*kb)/) { ($1.to_i / 1000).to_s }
       else
         l.gsub(/\[\S*\s(\S*)\]\W+INFO: \w*\s(\w*)/, "<span class='gray'>\\1</span> | <span class='act'>act</span> | \\2")
       end
