@@ -27,14 +27,13 @@
         <a href="/w/<%= watch %>"><%= watch %></a></li>
       <% end %>
       <li class="group">Extras</li>
-      <li id="home_icon" class="hicon">
-        <a href="/i">Home Icon</a>
-      </li>
-      <li id="god_opts" class="god">
-        <a href="/o">God</a>
-      </li>
+      <li id="home_icon" class="hicon"><a href="/i">Home Icon</a></li>
+      <li id="god_opts" class="god"><a href="/o">God</a></li>
       <li class="group">About</li>
-      <li class="info"><%= @footer %> [ok]</li>
+      <% for stat in @stats %>
+        <li class="<%= stat[0] %> tiny"><%= stat[1] %></li>
+      <% end %>
+      <li class="about tiny"><%= @footer %> [ok]</li>
     </ul>
   </body>
 </html>

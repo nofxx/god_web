@@ -9,7 +9,10 @@ li.restart { background: transparent url(../icons/restart.png) no-repeat scroll 
 li.groups  { background: transparent url(../icons/groups.png) no-repeat scroll 8px 12px;}
 li.god     { background: transparent url(../icons/terminal.png) no-repeat scroll 8px 12px;}
 li.hicon   { background: transparent url(../icons/bookmark.png) no-repeat scroll 8px 12px;}
+li.about   { background: transparent url(../icons/ruby.png) no-repeat scroll 7px 7px;}
 li.info    { background: transparent url(../icons/info.png) no-repeat scroll 7px 7px;}
+li.cpus    { background: transparent url(../icons/cpu.png) no-repeat scroll 7px 7px;}
+li.mem     { background: transparent url(../icons/mem.png) no-repeat scroll 7px 7px;}
 li.up      { background: transparent url(../icons/up.png) no-repeat scroll 8px 12px;}
 
 .home_icon_div {
@@ -23,7 +26,7 @@ li.up      { background: transparent url(../icons/up.png) no-repeat scroll 8px 1
   text-shadow: rgba(255, 255, 255, 0.75) 2px 2px 0;
 }
 
-.info {
+.tiny {
   font-size: 0.8em;
 }
 

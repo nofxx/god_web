@@ -70,15 +70,26 @@ class GodWeb
 
   def self.possible_statuses(status)
     case status
-    when :up
-      return [true, true] # %w{stop restart unmonitor}
-    when :unmonitored
-      return [false, false] #%w{start monitor}
-    else
-      return [true, true] #%w{start stop restart}
+    when :up then [true, true] # %w{stop restart unmonitor}
+    when :unmonitored then [false, false] #%w{start monitor}
+    else [true, true] #%w{start stop restart}
     end
   end
 
+  def self.ram_status
+    mem = `free -mo`.split(" ")
+    used, free, cached, swap = mem[8], mem[9], mem[12], mem[15]
+  end
+
+  def self.cpu_status
+    #stat = `cat /proc/stat`.split(" ")
+    top = `top -bn 1`
+    info, tasks, cpus, mem, swap, *rest = *top
+    # Use array to keep order (ruby < 1.9)
+    [[:info, info.gsub(/top - |\d{2}:\d{2}(:\d{2})?(\s|,)|\saverage/, "")],
+      [:cpus, cpus.gsub("Cpu\(s\): ", "").split(", ")[0..3].join(", ")],
+      [:mem, mem.gsub("Mem:  ", "").gsub(/(\d*k)/) { ($1.to_i / 1000).to_s }]]
+  end
 
 private
 

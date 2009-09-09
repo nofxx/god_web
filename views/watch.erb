@@ -12,8 +12,18 @@
       <div align='left'><%= @log %></div>
     </fieldset>
   <% end %>
+  <% if @child %>
+    <h2> Watches </h2>
+    <fieldset>
+      <% for child in @child %>
+        <div class="row" id="<%= child %>">
+        <label><a href="/w/<%= child %>"><%= child %></a></label></div>
+      <% end %>
+    </fieldset>
+  <% end %>
   <h2> Commands </h2>
   <fieldset>
+    <% if @commands[1] %>
     <div class="row">
       <label>Power</label>
       <div id="toggle_power" class="toggle" toggled="<%= @commands[0] %>" onclick="submitCommand('power', '<%= @watch %>')">
@@ -21,12 +31,16 @@
         <span class="toggleOff">OFF</span>
       </div>
     </div>
+    <% end %>
     <div class="row">
       <label>Monitor</label>
-      <div id="toggle_monitor" class="toggle" toggled="<%= @commands[1] %>" onclick="submitCommand('monitor', '<%= @watch %>')"><span class="thumb"></span><span class="toggleOn">ON</span><span class="toggleOff">OFF</span></div>
+      <div id="toggle_monitor" class="toggle" toggled="<%= @commands[1] || @commands[0] %>" onclick="submitCommand('monitor', '<%= @watch %>')"><span class="thumb"></span><span class="toggleOn">ON</span><span class="toggleOff">OFF</span></div>
     </div>
   </fieldset>
   <div id="command_result"></div>
-  <a class="redButton" onclick="submitCommand('restart', '<%= @watch %>')">Restart</a>
+    <% if @commands[1] || @commands[0] %>
+
+  <a class="redButton" onclick="submitCommand('restart', '<%= @watch %>')">Restart <%= " All" if @child %></a>
+<% end %>
 </div>
 

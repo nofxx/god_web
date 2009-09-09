@@ -16,6 +16,7 @@ get '/' do
   @watches.sort!
   @groups = GODWEB.groups
   @host = `hostname`
+  @stats = GodWeb.cpu_status
   @footer = "GodWeb v0.2 - #{@host}"
   show(:status, @host)
 end
@@ -30,6 +31,8 @@ end
 
 get '/g/:group' do
   @watch = @group = params["group"]
+  puts @child = GODWEB.status.keys.each.select { |k| GODWEB.status[k][:group] == @group } #.select { |w| w["group"] = @group }
+  puts @child.inspect
   @status = nil
   @commands = GodWeb.possible_statuses(@status)
   show(:watch, "#{@group} [group]")
@@ -45,7 +48,7 @@ get '/w/:watch/:command' do
 end
 
 get '/o' do
-  @commands = %w{ quit restart }
+  @commands = %w{ true }
   show(:watch, "god itself")
 end
 
