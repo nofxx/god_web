@@ -13,7 +13,7 @@ get '/' do
   @statuses.each do |watch, status|
     @watches << watch.to_s
   end
-  @watches.sort!
+  @watches = @watches.group_by { |w| @statuses[w][:state].to_s }
   @groups = GODWEB.groups
   @host = `hostname`
   @stats = GodWeb.cpu_status

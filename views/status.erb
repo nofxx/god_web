@@ -21,10 +21,12 @@
           <li id="<%= watch %>"><a href="/g/<%= watch %>"><img src="icons/groups.png"><%= watch %></a></li>
         <% end %>
       <% end %>
-      <li class="group">Watches</li>
-      <% @watches.each do |watch| %>
-        <li id="<%= watch %>">
-        <a href="/w/<%= watch %>"><img src="icons/<%= @statuses[watch][:state] %>.png"></img><%= watch %></a></li>
+      <% @watches.each do |state, watches| %>
+        <li class="group"><%= state.capitalize %></li>
+        <% for watch in watches %>
+          <li id="<%= watch %>">
+          <a href="/w/<%= watch %>"><img src="icons/<%= @statuses[watch][:state] %>.png"></img><%= watch %></a></li>
+        <% end %>
       <% end %>
       <li class="group">Extras</li>
       <li id="home_icon"><a href="/i"><img src="icons/bookmark.png"></img>Home Icon</a></li>
