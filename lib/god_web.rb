@@ -69,10 +69,11 @@ class GodWeb
   end
 
   def self.possible_statuses(status)
+    # need to check, but god doesn't have a monitored and offline state...
     case status
-    when :up then [true, true] # %w{stop restart unmonitor}
+    when :up then [true, true] #%w{start monitor}
     when :unmonitored then [false, false] #%w{start monitor}
-    else [true, true] #%w{start stop restart}
+    else [] # nil #[false, false] #%w{start stop restart}
     end
   end
 
@@ -87,7 +88,7 @@ class GodWeb
     info, tasks, cpus, mem, swap, *rest = *top
     # Use array to keep order (ruby < 1.9)
     [[:info, info.gsub(/top - |\d{2}:\d{2}(:\d{2})?(\s|,)|\saverage/, "")],
-      [:cpus, cpus.gsub("Cpu\(s\): ", "").split(", ")[0..3].join(", ")],
+      [:cpus, cpus.gsub("Cpu\(s\): ", "").split(", ")[0..4].join(", ")],
       [:mem, mem.gsub("Mem:  ", "").gsub(/(\d*k)/) { ($1.to_i / 1000).to_s }]]
   end
 
@@ -121,6 +122,7 @@ private
   # To make it look good (no horiz scrollbars) in the iphone
   #
   def format_log(raw)
+    return "..." unless raw
     raw.split("\n").map do |l|
       # clean stuff we don't need
       l.gsub!(/I\s+|\(\w*\)|within bounds/, "") #        gsub(/\(\w*\)/, """)

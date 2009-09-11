@@ -17,7 +17,7 @@ get '/' do
   @groups = GODWEB.groups
   @host = `hostname`
   @stats = GodWeb.cpu_status
-  @footer = "GodWeb v0.2 - #{@host}"
+  @footer = "GodWeb v0.2.5 - #{@host}"
   show(:status, @host)
 end
 
@@ -55,6 +55,11 @@ end
 get '/i' do
   @text = `hostname`
   show(:icon)
+end
+
+get '/t' do
+  @text = `top -Hibn 1`.gsub("top - ", "")
+  show(:top)
 end
 
 get '/heartbeat' do

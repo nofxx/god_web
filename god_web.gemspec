@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{god_web}
-  s.version = "0.2.3"
+  s.version = "0.2.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jesse Newland", "Marcos Piccinini"]
-  s.date = %q{2009-09-09}
+  s.date = %q{2009-09-11}
   s.default_executable = %q{god_web}
   s.description = %q{iPhone friendly sinatra web UI for God}
   s.email = %q{see@github.com}
@@ -32,13 +32,16 @@ Gem::Specification.new do |s|
      "lib/god_web.rb",
      "public/.DS_Store",
      "public/app.css",
+     "public/app.js",
      "public/icons/big_icon.png",
      "public/icons/bookmark.png",
+     "public/icons/cpus.png",
      "public/icons/databases.png",
      "public/icons/gear.png",
      "public/icons/groups.png",
      "public/icons/info.png",
      "public/icons/key.png",
+     "public/icons/mem.png",
      "public/icons/monitor.png",
      "public/icons/restart.png",
      "public/icons/ruby.png",
@@ -56,6 +59,7 @@ Gem::Specification.new do |s|
      "public/iui/blueButton.png",
      "public/iui/cancel.png",
      "public/iui/grayButton.png",
+     "public/iui/greenButton.png",
      "public/iui/iui-logo-touch-icon.png",
      "public/iui/iui.css",
      "public/iui/iui.js",
@@ -74,11 +78,13 @@ Gem::Specification.new do |s|
      "public/iui/toolButton.png",
      "public/iui/toolbar.png",
      "public/iui/whiteButton.png",
+     "public/iui/yellowButton.png",
      "spec/god_web_spec.rb",
      "spec/spec_helper.rb",
      "views/command.erb",
      "views/icon.erb",
      "views/status.erb",
+     "views/top.erb",
      "views/watch.erb"
   ]
   s.homepage = %q{http://github.com/nofxx/god_web}
