@@ -24,7 +24,7 @@ class GodWeb
 
       w.restart_if do |restart|
         restart.condition(:memory_usage) do |c|
-          c.above = 20.megabytes
+          c.above = 30.megabytes
           c.times = [3, 5]
         end
 

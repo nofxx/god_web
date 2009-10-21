@@ -4,8 +4,8 @@ iPhone friendly web UI "God":http://god.rubyforge.org/
 
 h2. Screenshots
 
-"!http://farm3.static.flickr.com/2281/2505507050_2f8fc39795_m.jpg!":http://www.flickr.com/photos/jnewland/2505507050/
-"!http://farm3.static.flickr.com/2420/2504730261_06ac1ba923_m.jpg!":http://www.flickr.com/photos/jnewland/2504730261/
+"!http://farm3.static.flickr.com/2531/4032700137_d8544b66aa_m.jpg!":http://www.flickr.com/photos/nofxx
+"!http://farm4.static.flickr.com/3515/4032701071_b50c017e9e_m.jpg!":http://www.flickr.com/photos/nofxx
 
 h2. Requirements
 
@@ -47,7 +47,7 @@ password: sekret
 </pre>
 
 Then provide the full path to that yaml file as an option to the @GodWeb.watch@
-call: 
+call:
 
 <pre>
 <code>
